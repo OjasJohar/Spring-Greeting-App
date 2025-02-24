@@ -60,4 +60,13 @@ public class GreetingService {
             return Optional.empty();
         }
     }
+
+    //UseCase: 8
+    public boolean deleteGreeting(Long id) {
+        if (greetingRepository.existsById(id)) {
+            greetingRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
