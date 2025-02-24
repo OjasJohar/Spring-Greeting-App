@@ -5,6 +5,7 @@ import com.bridgelabz.Spring_GreetingApp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -49,5 +50,11 @@ public class GreetingController {
         } else {
             return "Greeting not found";
         }
+    }
+
+    //UseCase: 6
+    @GetMapping("/greeting/all")
+    public List<Greeting> getAllGreetings(){
+        return greetingService.getAllGreeting();
     }
 }
