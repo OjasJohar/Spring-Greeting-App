@@ -57,4 +57,15 @@ public class GreetingController {
     public List<Greeting> getAllGreetings(){
         return greetingService.getAllGreeting();
     }
+
+    //UseCase: 7
+    @PutMapping("/greeting/{id}")
+    public String updatingGreetingById(@PathVariable long id, @RequestParam String message){
+        Optional<Greeting> greeting=greetingService.updatingGreeting(id,message);
+        if(greeting.isPresent()){
+            return "Greeting updated";
+        }else{
+            return "Greeting not found";
+        }
+    }
 }
